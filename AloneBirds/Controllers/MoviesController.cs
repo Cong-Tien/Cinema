@@ -1,0 +1,168 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using AloneBirds.Models;
+using AloneBirds.ViewModel;
+
+namespace AloneBirds.Controllers
+{
+    public class MoviesController : Controller
+    {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: Movies
+        public ActionResult Index()
+        {
+            return View(db.Movies.ToList());
+        }
+        public ActionResult Index_movie()
+        {
+            return View(db.Movies.ToList());
+        }
+        //public ActionResult Search()
+        //{
+        //    return View(new MovieViewModel());
+        //}
+
+        //[HttpPost]
+        //public ActionResult Search(string name)
+        //{
+        //    var search = db.Movies
+        //        .Where(a => a.Name.Contains(name))
+        //        .Include(l => l.Name)
+        //        .Include(l => l.Poster)
+        //        .Include(l => l.Release)
+        //        .Include(l => l.Trailer).ToList();
+
+        //    //var viewModel = new MovieViewModel
+        //    //{
+        //    //    GetMovie=search,
+        //    //};
+        //    return View(search);
+
+        //}
+
+        // GET: Movies/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
+        // GET: Movies/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Movies/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Category,Release,Poster,Trailer")] Movie movie, HttpPostedFileBase Poster)
+        {
+            if (ModelState.IsValid)
+            {
+                string path = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                if (Poster != null)
+                {
+                    string fileName = Path.GetFileName(Poster.FileName);
+                    Poster.SaveAs(path + fileName);
+
+                }
+                movie.Poster = "/Uploads/" + Poster.FileName;
+                db.Movies.Add(movie);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(movie);
+        }
+
+        // GET: Movies/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
+        // POST: Movies/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Category,Release,Poster,Trailer")] Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(movie).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(movie);
+        }
+
+        // GET: Movies/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
+        // POST: Movies/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Movie movie = db.Movies.Find(id);
+            db.Movies.Remove(movie);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

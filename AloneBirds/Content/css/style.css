@@ -1,0 +1,468 @@
+/* Global Css */
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+
+.section-title{
+    color: lightpink;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid lightblue;
+    padding-bottom: 15px;
+    position: relative;
+}
+/* End Global Css */
+
+/* Header */
+.header{ 
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    background-color: transparent;
+    border-radius: 20px;
+    
+}
+.menu{
+    margin-top: 9px;
+    margin-right: 250px;
+}
+a#navbarDropdown.nav-link.dropdown-toggle::after{
+    display: none;
+}
+.account {
+    margin-right: 35px;
+}
+.account i{
+    color: white;
+    font-size: 35px;
+    margin-right: 15px;
+}
+.account span{
+    margin-top: 15px;
+    color: white;
+    font-size: 15px;
+}
+.header__navbar .nav-item .nav-link
+{
+    color: white;
+    padding: 0 10px;
+}
+
+.header__navbar .navbar-nav{
+    padding: 0px;
+    border-bottom: 0px solid rgb(28, 97, 122) !important;
+}
+.header__navbar .nav-item::after{
+    content:'';
+    display: block;
+    height: 3px;
+    width:0;
+    background: linear-gradient(to right, lightpink,pink);
+    transition: all 0.5s;
+    box-shadow: 0ex;
+}
+.header__navbar .nav-item.active::after ,.header__navbar .nav-item:hover::after {
+    width: 100%;  
+}
+/* End Header */
+
+/* Carousel */
+.carousel-item img{
+    height: 800px;
+    background-size: cover;
+}
+
+.carousel--item__overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: linear-gradient(to top, black, transparent);
+}
+.carousel--item__caption{
+    position: absolute;
+    top:70%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.carousel--item__caption .title{
+    color: rgb(223, 36, 120);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.carousel--item__caption p{   
+    font-size: 18px;
+    color: rgb(212, 200, 200);
+    padding-right: 25%;
+    font-style: italic;
+
+}
+.carousel--item__trailer span{   
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    line-height: 40px;
+    color: #ff4f81;
+
+}
+.btn-orange
+{
+    background: linear-gradient(to right, pink, hotpink);
+    border-radius: 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 11px 30px;
+    cursor: pointer;
+    position: relative;
+    transition: all 1s;
+
+}
+.btn-orange:hover{
+    background: #ff4f81;
+}
+
+.my-carousel .carousel-indicators li{
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-radius: 50%;
+    border: 1.5px solid white;
+
+}
+.my-carousel .carousel-indicators{
+    bottom: 50px;
+
+}
+.my-carousel .carousel-indicators li.active{
+    background: hotpink;
+
+}
+
+
+
+
+.abcd{
+    position: absolute;
+    display:inline-flexbox !important;
+    margin-left: -150px !important;
+    width: 900px !important;
+    height: 600px !important;
+}
+.bachan{
+    font-size: 35px;
+    color: pink;
+}
+/* ENd Carousel */
+
+/* Movie CSS */
+.movie{
+    padding-top: 80px;
+}
+.mnc{
+    color: pink;
+}
+
+.movie__title::after{
+     content: '';
+     width: 200px;
+     height: 3px;
+     background-image: linear-gradient(to right,lightpink,pink);
+     position: absolute;
+     bottom:-1px;
+     left: 0;
+}
+
+.moive__item{
+    border-radius: 15px;
+    border: 5px solid pink;
+    position: relative;
+    overflow: hidden;
+}
+.moive__item img{
+    height: 400px;
+}
+.movie__detail{
+    position: absolute;
+    top:50%;
+    left: 0;
+    transform: translateY(-50%) scale(0.8);
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.2s;
+}
+.movie__detail i{
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+    border-radius: 50%;
+    border: 4px solid hotpink;
+    margin: 17px auto;
+    line-height: 70px;
+
+}
+.movie__detail a{
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.movie__detail span{
+    font-size: 16px;
+}
+
+.movie__overlay{
+    position: absolute;
+    top:0;
+    left: -400%;
+    transform: skewX(45deg);
+    background: linear-gradient(to bottom, lightpink, hotpink);
+    width: 300%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.moive__item:hover .movie__overlay{
+    left: -100%;
+}
+
+.moive__item:hover .movie__detail{
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.movie__name{
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: hotpink;
+}
+
+.movie__start{
+    color: pink;
+}
+/* End Movie CSS */
+
+/* Show time css */
+.showtimes{
+    padding-top: 80px;
+}
+.showtimes .nav-tabs .nav-link{
+    position: relative;
+    color: #4a4a4a;
+    padding: 10px 30px;
+}
+.showtimes .nav-tabs .nav-link::after{
+    content: '';
+    width: 0;
+    height: 4px;
+    background: linear-gradient(to bottom, pink, hotpink);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    display: inline-block;
+    transition: all 0.75s;
+}
+.showtimes .nav-tabs .nav-link.active::after, .showtimes .nav-tabs .nav-link:hover::after{
+    width: 100%;
+}
+.showtimes .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .showtimes .nav-tabs .nav-link:hover{
+    border: white;
+
+}
+.showtimes__movie img{
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+}
+.showtimes__list{
+    color: #717171;
+}
+.showtimes__detail > span{
+    font-size: 14px;
+    color: hotpink;
+    letter-spacing: 2px;
+}
+.showtimes__detail > h1{
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+.showtimes__detail > p{
+    font-size: 16px;
+    color: #717171;
+    font-style: italic;
+}
+.showtimes__detail > a{
+    font-size: 12px;
+    color: pink;
+    letter-spacing: 3px;
+}
+.showtimes__list i ,.showtimes__list span{
+    font-size: 14px;
+}       
+      
+/* Ebd show time css */
+
+/* Coming css */
+.coming{
+    background-color: lightpink;
+}
+.coming_bg{
+    padding: 8px;
+    background-image: url(../images/iteam-7.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.coming_bg .section-title{
+    color: hotpink;
+    font-weight: bold;
+
+}
+.coming__detail >span{
+    font-size: 24px;
+    color: hotpink;
+}
+.coming__detail >h1{
+    font-size: 44px;
+}
+.coming__detail .fa-star{
+    font-size: 24px;
+    color: lightpink;
+}
+.coming__date{
+    opacity: 0.75;
+    font-size: 24px;
+    margin-left: 10px;
+}
+.coming__detail a{
+    letter-spacing: 3px;
+    color: pink;
+}
+
+.coming__trailer{
+    position: relative;
+}
+.coming__trailer .button i{
+    width: 84px;
+    font-size: 30px;
+    height: 84px;
+    display: block;
+    border: 2px solid hotpink;
+    border-radius: 50%;
+    color: hotpink;
+    text-align: center;
+    line-height: 84px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.coming__trailer img{
+    display: block;
+    width: 600px ;
+    height: 450px ;
+}
+/* End coming css */
+/* app */
+.app{
+   margin-top: 50px;
+   height:600px;
+   background-image: url('../images/background.jpg');
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.app .container{
+    padding-top:40px;
+
+}
+.app_intro{
+  margin-top: 15%;
+}
+.app_intro span{
+    margin-top: 50%;
+    font-size: 40px;
+    font-weight: bold;
+}
+.app_intro p{
+    margin-top: 20px;
+    font-size: 20px;
+    color: beige;
+
+}
+.app_intro button{
+    background-color: hotpink;
+color: black;
+}
+.app_phone img{
+    margin-left: 50px;
+    height: 550px;
+    width: 300px;
+}
+
+/* end app */
+/* map */
+.contact-map iframe{
+    margin-top: 20px;
+    width: 97%;
+    height: 500px;
+
+}
+/* end Map */
+/* footer */
+.footer{
+    margin: auto;
+    background: #000;
+}
+
+.footer .row {
+    height: 280px;
+}
+
+.footer h3{
+    color:#fff;
+    height: 50px;
+}
+
+ .footer-col-2, .footer-col-3, .footer-col-4{
+    text-align: center;
+}
+.footer p{
+color: darkgrey;
+}
+
+.footer-col-1 .app-logo img {
+    display: block;
+    width: 50px !important;
+    height: 30px;
+}
+
+.app-logo img {
+    width: 350px;
+    padding: 20px;
+}
+
+.copyright {
+    line-height: 70px;
+    text-align: center;
+}
+
+/* End Footer */
+
+.footer i{
+    margin-right: 4px;
+    font-size: 14px;
+    padding: 8px 10px;
+    background-color: #333333;
+    margin-left: 5px;
+    border: 1px solid transparent;
+    transition: all 0.5s;
+    background-color: #ff4f81;
+    border: 1px solid white;
+}

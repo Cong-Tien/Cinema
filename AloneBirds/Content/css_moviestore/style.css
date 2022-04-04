@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,500&display=swap');
+*{
+    padding:0;
+    margin:0;
+	font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+/* Header */
+.header{ 
+	display: inline-block;
+	position: absolute;
+    z-index: 10;
+    width: 100%;
+	height: 100px;
+    background-color: transparent;
+    border-radius: 20px;
+    
+}
+.navbar {
+	align-items: baseline !important;
+}
+
+.menu{
+    margin-top: 9px;
+    margin-right: 250px;
+}
+a#navbarDropdown.nav-link.dropdown-toggle::after{
+    display: none;
+}
+.account {
+    margin-right: 35px;
+}
+.account i{
+    color: white;
+    font-size: 35px;
+    margin-right: 15px;
+}
+.account span{
+    margin-top: 15px;
+    color: white;
+    font-size: 15px;
+}
+.header__navbar .nav-item .nav-link
+{
+    color: white;
+    padding: 0 10px;
+}
+
+.header__navbar .navbar-nav{
+    padding: 0px;
+    border-bottom: 0px solid rgb(28, 97, 122) !important;
+}
+.header__navbar .nav-item::after{
+    content:'';
+    display: block;
+    height: 3px;
+    width:0;
+    background: linear-gradient(to right, lightpink,pink);
+    transition: all 0.5s;
+    box-shadow: 0ex;
+}
+.header__navbar .nav-item.active::after ,.header__navbar .nav-item:hover::after {
+    width: 100%;  
+}
+/* End Header */
+
+body {
+	min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins',sans-serif;
+    background-color: rgb(62, 62, 62);
+}
+
+@keyframes animate {
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+    
+}
+
+.slideshow-container .slides .text {
+    color: #57c5e0;
+    font-size:xx-large;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+}
+.select_item .dropdown {
+	padding-top: 150px;
+    text-align: center;
+    height: 150px;
+    font-size: 14px;
+    width: 100%;
+    padding-bottom: 100px;
+}
+select {
+    font-size: 40px;
+    margin: 10px;
+    text-align: center;
+    background-color: #fafeff;
+}
+input {
+    background-image: linear-gradient(-225deg,#22e1ff,#1d8fe1 48%,#625eb1);
+    text-align: center;
+    height: 45px;
+    width: 255px;
+    margin: 10px;
+    font-size: 40px;
+}
+.listname {
+    padding-bottom: 50px;
+}
+.listname p {
+    color: #1d8fe1;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+}
+.slideshow-containe-movier img {
+    margin-right: 6.6px;
+    padding-top: 30px;
+    height: 355px;
+    text-align: center;
+    width: 240px;
+    position: relative;
+    float: none;
+}
+.slideshow-containe-movier h4 {
+    color:white;
+}
+.hero-container {
+	margin: auto;
+	display: flex;
+}
+.main-container {
+	width: 270px;
+	height: 540px;
+	position: relative;
+	margin: 0 20px;
+}
+.poster-container {
+	width: 230px;
+	position: absolute;
+	top: 0;
+	left: 20px;
+	z-index: 9999;
+}
+.poster {
+	width: 100%;
+	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+.ticket-container {
+	background: #fff;
+	width: 270px;
+	height: 520px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 5px;
+	position: absolute;
+	top: 20px;
+	box-shadow: 0 5px 20px 3px rgba(243, 243, 243, 0.6);
+	opacity: 0;
+}
+
+.main-container:hover .ticket-container {
+	opacity: 1;
+	animation: bounceIn 0.6s linear;
+}
+@keyframes bounceIn {
+	0%,
+	20%,
+	40%,
+	60%,
+	80%,
+	to {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	20% {
+		-webkit-transform: scale3d(1.03, 1.03, 1.03);
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+	40% {
+		-webkit-transform: scale3d(0.9, 0.9, 0.9);
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: scale3d(1.01, 1.01, 1.01);
+		transform: scale3d(1.01, 1.01, 1.01);
+	}
+	80% {
+		-webkit-transform: scale3d(0.97, 0.97, 0.97);
+		transform: scale3d(0.97, 0.97, 0.97);
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+}
+
+.ticket__content {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}
+
+.ticket__movie-title {
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.ticket__movie-slogan {
+	color: #999;
+	font-size: 0.9rem;
+	margin-bottom: 20px;
+}
+
+.ticket__buy-btn {
+	cursor: pointer;
+	width: 100%;
+	background: #21d1fd;
+	color: white;
+	padding: 15px 0;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+footer{
+	color: white;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 50px 100px;
+	background: #000000;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+footer .container{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+/*Thiết Lập Cho Thành Phần Nội Dung Giới Thiệu*/
+footer .container .noi-dung{
+	margin-right: 30px;
+}
+footer  .container .noi-dung.about{
+	width:40%;
+}
+footer .container .noi-dung.about h2{
+	position: relative;
+	color: #fff;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+footer .container .noi-dung.about h2:before{
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 50px;
+	height: 2px;
+	background: rgb(138, 241, 245);
+}
+footer .container .noi-dung.about p{
+	color: rgb(255, 255, 255);
+}
+/*Thiết Lập Cho Thành Phần Icon Mạng Xã Hội*/
+.social-icon{
+	margin-top: 20px;
+	display: flex;
+}
+.social-icon li {
+	list-style: none;
+}
+.social-icon li a{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: #21d1fd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	text-decoration: none;
+	border-radius: 4px;
+}
+.social-icon li a:hover{
+	background: #95eaff;
+}
+.social-icon li a .fa{
+	color: #fff;
+	font-size: 20px;
+}
+
+.links h2{
+	position: relative;
+	color: #fff;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+.links h2{
+	position: relative;
+	color: #fff;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+.links h2::before{
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 50px;
+	height: 2px;
+	background: #f00;
+}
+.links{
+   position: relative;
+   width: 25%;
+}
+.links ul li{
+	list-style: none;
+}
+.links ul li a{
+	color: #999;
+	text-decoration: none;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.links ul li a:hover{
+	color: #fff;
+}
+
+.contact h2{
+	position: relative;
+	color: #fff;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+.contact h2::before{
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 50px;
+	height: 2px;
+	background: #f00;
+}
+.contact{
+	width: calc(35% - 60px);
+	margin-right: 0 !important;
+}
+.contact .info{
+	position: relative;
+}
+.contact .info li{
+	display: flex;
+	margin-bottom: 16px;
+}
+.contact .info li span:nth-child(1) {
+	color: #fff;
+	font-size: 20px;
+	margin-right: 10px;
+}
+.contact .info li span{
+	color: #999;
+}
+.contact .info li a{
+	color: #999;
+	text-decoration: none;
+}
+
+.btn {
+	display: inline-block;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	border: 0;
+	outline: 0;
+	padding: 0;
+	margin-top:16px;
+	transition: all 200ms ease-in;
+	cursor: pointer;
+}
+.btn--primary {
+	background: #222;
+	color: #fff;
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+	border-radius: 2px;
+	padding: 8px 24px;
+}
+.btn--primary:hover {
+	background: #f00;
+}
+.btn--primary:active {
+	background: #f00;
+	box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, .2);
+}
+.form__field {
+	width: 90%;
+	background: #fff;
+	color: #a3a3a3;
+	font: inherit;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
+	border: 0;
+	outline: 0;
+	padding: 8px 4px;
+}
+
+@media  (max-width: 768px){
+	footer{
+		padding: 40px;
+			 }
+	footer .container{
+		flex-direction: column;
+	}
+	footer .container .noi-dung{
+		margin-right: 0;
+		margin-bottom: 40px;
+	}
+	footer .container, .noi-dung.about, .links, .contact{
+		width: 100%;
+	}
+}
+.abcd{
+    margin-left: -150px !important;
+    width: 900px !important;
+    height: 600px !important;
+}
+.bachan{
+    font-size: 35px;
+    color: pink;
+}

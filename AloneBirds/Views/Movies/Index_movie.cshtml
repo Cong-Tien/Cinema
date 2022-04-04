@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AloneBirds.Models.Movie>
+
+@{
+  
+    Layout = "~/Views/Shared/_Layout_movie.cshtml";
+}
+
+@foreach (var item in Model) {
+<div class="main-container">
+    <div class="poster-container">
+        <a href="#"><img src="@item.Poster" class="poster" /></a>
+    </div>
+    <div class="ticket-container">
+        <div class="ticket__content">
+            <h4 class="ticket__movie-title">@item.Name</h4>
+            <p class="ticket__movie-slogan">
+                @item.Release
+            </p>
+            <button style="background-color: lightpink; border: 0;" class="btn btn-primary mb-2" data-toggle="modal" data-target="#videoModal" data-theVideo="@item.Trailer">Trailer</button>
+            <button class="ticket__buy-btn">Mua Vé</button>
+        </div>
+    </div>
+</div>
+}
+
