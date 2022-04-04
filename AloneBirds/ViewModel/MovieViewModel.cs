@@ -8,7 +8,7 @@ namespace AloneBirds.ViewModel
 {
     public class MovieViewModel
     {
-        //public IEnumerable<Movie> GetMovie { get; set; }
+        public IEnumerable<Movie> GetMovie { get; set; }
         public string NameMovie { get; set; }
     }
 }

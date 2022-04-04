@@ -209,6 +209,7 @@
     <Content Include="Content\css_moviestore\style.css" />
     <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\bighero.jpg" />
+    <Content Include="Content\images\boss.jpg" />
     <Content Include="Content\images\CGV_logo.svg.png" />
     <Content Include="Content\images\gaigialamchieu.jpg" />
     <Content Include="Content\images\iteam-7.jpg" />
@@ -332,6 +333,7 @@
     <Content Include="Views\Movies\Index_movie.cshtml" />
     <Content Include="Views\Movies\Search.cshtml" />
     <Content Include="Views\Shared\_PartialPage1.cshtml" />
+    <Content Include="Views\Shared\_Layout_Movie_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,28 +25,28 @@ namespace AloneBirds.Controllers
         {
             return View(db.Movies.ToList());
         }
-        //public ActionResult Search()
-        //{
-        //    return View(new MovieViewModel());
-        //}
+        public ActionResult Search()
+        {
+            return View(new MovieViewModel());
+        }
 
-        //[HttpPost]
-        //public ActionResult Search(string name)
-        //{
-        //    var search = db.Movies
-        //        .Where(a => a.Name.Contains(name))
-        //        .Include(l => l.Name)
-        //        .Include(l => l.Poster)
-        //        .Include(l => l.Release)
-        //        .Include(l => l.Trailer).ToList();
+        [HttpPost]
+        public ActionResult Search(string name)
+        {
+            var search = db.Movies
+                .Where(a => a.Name.Contains(name))
+                .Include(l => l.Name)
+                .Include(l => l.Poster)
+                .Include(l => l.Release)
+                .Include(l => l.Trailer).ToList();
 
-        //    //var viewModel = new MovieViewModel
-        //    //{
-        //    //    GetMovie=search,
-        //    //};
-        //    return View(search);
+            var viewModel = new MovieViewModel
+            {
+                GetMovie = search,
+            };
+            return View(viewModel);
 
-        //}
+        }
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
