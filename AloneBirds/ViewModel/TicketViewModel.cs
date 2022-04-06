@@ -6,9 +6,9 @@ using System.Web;
 
 namespace AloneBirds.ViewModel
 {
-    public class MovieViewModel
+    public class TicketViewModel
     {
-        public IEnumerable<Movie> GetMovie { get; set; }
-        public string NameMovie { get; set; }
+       public byte Watching { get; set; }
+        public IEnumerable<Watching> Watchings { get; set; }
     }
 }

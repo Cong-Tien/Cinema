@@ -6,14 +6,14 @@ namespace AloneBirds.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddTableMovie : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class AddViewCreateTicket : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTableMovie));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddViewCreateTicket));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204030948275_AddTableMovie"; }
+            get { return "202204060804459_AddViewCreateTicket"; }
         }
         
         string IMigrationMetadata.Source

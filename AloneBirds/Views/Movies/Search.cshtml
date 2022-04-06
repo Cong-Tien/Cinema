@@ -1,26 +1,25 @@
-﻿@*@model IEnumerable<AloneBirds.ViewModel.MovieViewModel>*@
+﻿@model IEnumerable<AloneBirds.Models.Movie>
+
 @{
     ViewBag.Title = "Search";
-    Layout = "~/Views/Shared/_Layout_Movie_Search.cshtml";
+    Layout = "~/Views/Shared/_Layout_Movie.cshtml";
 }
 
-<h2>Search</h2>
-@*@foreach (var search in Model.GetMovie)
+@foreach (var item in Model)
 {
     <div class="main-container">
         <div class="poster-container">
-            <a href="#"><img src="@search.Poster" class="poster" /></a>
+            <a href="#"><img src="@item.Poster" class="poster" /></a>
         </div>
         <div class="ticket-container">
             <div class="ticket__content">
-                <h4 class="ticket__movie-title">@search.Name</h4>
+                <h4 class="ticket__movie-title">@item.Name</h4>
                 <p class="ticket__movie-slogan">
-                    @search.Release
+                    @item.Release
                 </p>
-                <button style="background-color: lightpink; border: 0;" class="btn btn-primary mb-2" data-toggle="modal" data-target="#videoModal" data-theVideo="@search.Trailer">Trailer</button>
-                <button class="ticket__buy-btn">Mua Vé</button>
+                <button style="background-color: lightpink; border: 0;" class="btn btn-primary mb-2" data-toggle="modal" data-target="#videoModal" data-theVideo="@item.Trailer">Trailer</button>
+                <button type="submit" onclick="location.href='@Url.Action("Index","Ticket")';" class="ticket__buy-btn">Mua Vé</button>
             </div>
         </div>
     </div>
-}*@
-
+}

@@ -21,6 +21,8 @@ namespace AloneBirds.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<ShowTime> ShowTimes { get; set; }
+        public DbSet<Watching> Watchings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
         public ApplicationDbContext()
