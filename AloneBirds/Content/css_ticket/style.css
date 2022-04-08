@@ -42,9 +42,10 @@ header #main-menu {
 header #main-menu .item {
     margin:0px 30px;
 }
-header .login {
+.login {
     width: 200px;
-    height: 40px;
+    height: 35px;
+	text-decoration: none;
     background:#3acdfa;
     color:#ffffff;
     display: flex;
@@ -54,6 +55,17 @@ header .login {
     border-radius: 7px;
 	border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
+}
+.login:hover {
+	cursor:pointer;
+  	padding:5px 8px;
+  	background:rgb(255, 255, 255);
+  	font-size:25px;
+  	transition:all 0.3s;
+	color:#000000;
+}
+.slideshow-container {
+	padding-bottom: 3%;	
 }
 .slideshow-container .slides .text {
     color: #57c5e0;
@@ -68,6 +80,46 @@ header .login {
     font-size: 14px;
     width: 100%;
     padding-bottom: 200px;
+}
+.dropdown-phim {
+	width: 200px;
+    height: 35px;
+	font-size: large;
+    background:#3acdfa;
+    color:#ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	border: 2px solid #dadada;
+    border-radius: 7px;
+	border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+	display: inline-block;
+	text-decoration: none;
+}
+.dropdown-mua {
+	width: 200px;
+    height: 35px;
+	font-size: larger;
+    background:#3acdfa;
+    color:#ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	border: 2px solid #dadada;
+    border-radius: 7px;
+	border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+	display: inline-block;
+	text-decoration: none;
+}
+.dropdown-mua:hover {
+	cursor:pointer;
+  	padding:5px 8px;
+  	background:rgb(255, 255, 255);
+  	font-size:25px;
+  	transition:all 0.3s;
+	color:#000000;
 }
 select {
     font-size: 40px;
@@ -84,7 +136,7 @@ input {
     font-size: 40px;
 }
 .listname {
-    padding-bottom: 50px;
+	padding-top: 3%;
 }
 .listname p {
     color: #1d8fe1;
@@ -107,6 +159,7 @@ input {
 .hero-container {
 	margin: auto;
 	display: flex;
+	padding-top: 3%;
 }
 .main-container {
 	width: 270px;
@@ -199,7 +252,6 @@ input {
 	font-size: 0.9rem;
 	margin-bottom: 20px;
 }
-
 .ticket__buy-btn {
 	cursor: pointer;
 	width: 100%;
@@ -213,7 +265,6 @@ input {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-
 
 footer{
 	color: white;
@@ -231,6 +282,8 @@ footer .container{
 	justify-content: space-between;
 	flex-wrap: wrap;
 	flex-direction: row;
+	padding-bottom: 20px;
+	padding-top: 5%;
 }
 /*Thiết Lập Cho Thành Phần Nội Dung Giới Thiệu*/
 footer .container .noi-dung{
@@ -412,33 +465,48 @@ footer .container .noi-dung.about p{
 		width: 100%;
 	}
 }
-/* trang chon ghe */
-/*#square {
-    width: 30px;
-    height: 30px;
-	margin: 5px;
-    background: #21d1fd;
-	border: 1px solid #c7c6c7;
-	transition: all 0.5s;
-	background-color: white;
-	box-shadow: inset 0 0 11px 4px #0b4a52;
-	border-radius: 5px;
-    cursor: pointer;
-	display: inline-block;
-}*/
+
 .square {   
 	height: 30px;
 	width: 30px;
 	margin: 5px;
     background: #ffffff;
     color: rgb(0, 0, 0);
-	border: 2px solid #dadada;
     border-radius: 7px;
 	border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
+}
+.square:hover {
+	margin: auto;
+	display: inline-block;
+	border: 2px solid #dadada;
+    border-radius: 3px;
+	border-color: #21d1fd;
+    box-shadow: 0 0 10px #ffffff;
+	background-color: #21d1fd;
+    transition: 0.5s;
+}
+.square-2 {
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	border: 2px solid #dadada;
+    border-radius: 3px;
+	border-color: #21d1fd;
+    box-shadow: 0 0 10px #ffffff;
+	background-color: #21d1fd;
+}
+.square-3 {
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	border: 2px solid #dadada;
+    border-radius: 3px;
+	border-color: lightpink;
+    box-shadow: 0 0 10px #ffffff;
+	background-color: lightpink;
 }
 .danhSachGhe {
-	width: auto;
+	width: 100%;
 	height: 20px;
 	color: #21d1fd;
 	font-size: xx-large;
@@ -449,24 +517,25 @@ footer .container .noi-dung.about p{
 }
 .chonGhe {
 	text-align: center;
-	width: 100%;
-	height: 620px;
+	width: 45%;
+	height: 1150px;
 	margin: 50px;
 	padding-bottom: 350px;
 }
 .gheCuoi {
 	text-align: center;
-	cursor: pointer;
 }
 .infGhe {
-	display: inline-block;
+	/* display: inline-block; */
 	color: #21d1fd;
+	padding-bottom: 5%;
+	padding-top: 5%;
 }
 #rectangle{
     width: 29%;
     height:150px;
     background:rgb(0, 0, 0);
-	margin: 10px;
+	margin: auto;
 	display: inline-block;
 	border: 2px solid #dadada;
     border-radius: 7px;
@@ -486,26 +555,26 @@ footer .container .noi-dung.about p{
 	float: left;
 }
 .btnMua {
-	height: 45px;
-	width: 250px;
-    background: #ffffff;
-    color: rgb(0, 0, 0);
-	font-size: x-large;
+	margin-top: 3%;
+	font-size: large;
+	width: 29%;
+    height: 40px;
+	text-decoration: none;
+    background:#3acdfa;
+    color:#ffffff;
+    align-items: center;
 	border: 2px solid #dadada;
     border-radius: 7px;
 	border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
 }
-.btnXacNhan {
-	height: 45px;
-	width: 250px;
-    background: #ffffff;
-    color: rgb(0, 0, 0);
-	font-size: x-large;
-	border: 2px solid #dadada;
-    border-radius: 7px;
-	border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
+.btnMua:hover {
+	cursor:pointer;
+  	padding:5px 8px;
+  	background:rgb(255, 255, 255);
+  	font-size:25px;
+  	transition:all 0.3s;
+	color:#000000;
 }
 .ggSearch {
 	width: 200px;
@@ -533,6 +602,34 @@ footer .container .noi-dung.about p{
 	border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
 }
-.square:hover{
-	background-color: #21d1fd;
+#buy-tickets {
+	background: #009688;
+	border: none;
+	color: #fff;
+	width: 100%;
+	font-size: 15px;
+	text-transform: uppercase;
+	padding: 18px;
+	cursor: pointer;
+}
+.modal-footer {
+	padding: 16px;
+	text-align: right;
+}
+.tongtien {
+	width: 29%;
+    height:150px;
+    background:rgb(0, 0, 0);
+	margin: 5px;
+	display: inline-block;
+	border: 2px solid #dadada;
+    border-radius: 7px;
+	border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+.tongtien p {
+	text-align: left;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }

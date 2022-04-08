@@ -180,17 +180,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204030935429_AddTableAccount.cs" />
-    <Compile Include="Migrations\202204030935429_AddTableAccount.Designer.cs">
-      <DependentUpon>202204030935429_AddTableAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204060546309_AddTables.cs" />
-    <Compile Include="Migrations\202204060546309_AddTables.Designer.cs">
-      <DependentUpon>202204060546309_AddTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204060804459_AddViewCreateTicket.cs" />
-    <Compile Include="Migrations\202204060804459_AddViewCreateTicket.Designer.cs">
-      <DependentUpon>202204060804459_AddViewCreateTicket.cs</DependentUpon>
+    <Compile Include="Migrations\202204080036584_UPdateDB.cs" />
+    <Compile Include="Migrations\202204080036584_UPdateDB.Designer.cs">
+      <DependentUpon>202204080036584_UPdateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -205,6 +197,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ShowTimesViewModel.cs" />
     <Compile Include="ViewModel\TicketViewModel.cs" />
+    <Compile Include="ViewModel\WatchingUpcoomingViewModel.cs" />
     <Compile Include="ViewModel\WatchingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,7 +207,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css_moviestore\style.css" />
-    <Content Include="Content\css_ticket\style.css" />
+    <Content Include="Content\css_Ticket\style.css" />
     <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\bighero.jpg" />
     <Content Include="Content\images\boss.jpg" />
@@ -353,6 +346,9 @@
     <Content Include="Views\Watchings\Edit.cshtml" />
     <Content Include="Views\Watchings\Index.cshtml" />
     <Content Include="Views\Ticket\Create.cshtml" />
+    <Content Include="Views\Watchings\Index_Watching.cshtml" />
+    <Content Include="Views\Shared\_Layout_Ticket.cshtml" />
+    <Content Include="Views\Ticket\Index_Ticket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,21 +359,15 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204030935429_AddTableAccount.resx">
-      <DependentUpon>202204030935429_AddTableAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204060546309_AddTables.resx">
-      <DependentUpon>202204060546309_AddTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204060804459_AddViewCreateTicket.resx">
-      <DependentUpon>202204060804459_AddViewCreateTicket.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202204080036584_UPdateDB.resx">
+      <DependentUpon>202204080036584_UPdateDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

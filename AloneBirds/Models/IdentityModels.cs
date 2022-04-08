@@ -34,5 +34,16 @@ namespace AloneBirds.Models
         {
             return new ApplicationDbContext();
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Watching>()
+                .HasRequired(a => a.Movie)
+                .WithMany();
+            modelBuilder.Entity<Ticket>()
+               .HasRequired(a => a.Watching)
+               .WithMany();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

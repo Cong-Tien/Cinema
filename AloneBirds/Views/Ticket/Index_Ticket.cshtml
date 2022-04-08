@@ -1,0 +1,11 @@
+﻿@model IEnumerable<AloneBirds.Models.Ticket>
+@{
+      Layout = "~/Views/Shared/_Layout_Ticket.cshtml";
+ }
+
+@foreach (var item in Model)
+{
+      <button class="square">@item.Seat</button>
+}
+
+

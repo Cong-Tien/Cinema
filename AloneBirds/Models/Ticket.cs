@@ -19,7 +19,7 @@ namespace AloneBirds.Models
         
         public Watching Watching { get; set; }
         [Required]
-        public byte WatchingId { get; set; }
+        public int WatchingId { get; set; }
   
 
 

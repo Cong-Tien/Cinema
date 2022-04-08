@@ -73,12 +73,12 @@ namespace AloneBirds.Controllers
             }
             return RedirectToAction("Index_Movie", "Movies");
         }
-        //var watching = new Ticket
-        //{
-
-        //db.Watchings.Add(watching);
-        //db.SaveChanges();
-        //return RedirectToAction("Index", "Watchings");
-        
+        public ActionResult Index_Ticket(int id)
+        {
+            var tickets = db.Tickets
+                .Where(a => a.WatchingId == id).ToList();
+            return View(tickets);
+            //return View(db.Tickets.ToList());
+        }
     }
 }

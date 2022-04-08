@@ -18,7 +18,30 @@ namespace AloneBirds.Controllers
         // GET: Watchings
         public ActionResult Index()
         {
-            return View(db.Watchings.ToList());
+            var upcommingMovies = db.Watchings
+               .Include(c => c.Movie)
+               .Include(c => c.ShowTime).ToList();
+            var viewModel = new WatchingUpcommingViewModel
+            {
+                UpcommingMovies = upcommingMovies
+            };
+            return View(viewModel);
+        }
+        public ActionResult Index_Watching()
+        {
+            //var search = db.Watchings
+            //    .Include(c => c.Movie)
+            //   .Include(c => c.ShowTime)
+            //   .Where(a => a.Movie.Release > DateTime.Now).ToList();
+            //return View(search);
+            var upcommingMovies = db.Watchings
+                .Include(c => c.Movie)
+                .Include(c => c.ShowTime).ToList();
+            var viewModel = new WatchingUpcommingViewModel
+            {
+                UpcommingMovies = upcommingMovies
+            };
+            return View(viewModel);
         }
 
         // GET: Watchings/Details/5

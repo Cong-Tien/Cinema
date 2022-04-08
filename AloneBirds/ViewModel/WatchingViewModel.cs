@@ -8,7 +8,6 @@ namespace AloneBirds.ViewModel
 {
     public class WatchingViewModel
     {
-      
         public byte Movie { get; set; }
         public IEnumerable<Movie> Movies { get; set; }
         public byte ShowTime { get; set; }
