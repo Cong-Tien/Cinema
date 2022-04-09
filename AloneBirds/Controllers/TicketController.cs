@@ -80,5 +80,64 @@ namespace AloneBirds.Controllers
             return View(tickets);
             //return View(db.Tickets.ToList());
         }
+        [HttpPost]
+        public ActionResult Buy(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var tickets = db.Tickets
+                .FirstOrDefault(a => a.Id == id);
+
+            tickets.State = 1; 
+            //var ticket = new Ticket
+            //{
+            //    Id = id,
+            //    ClientsID = userId /*tickets.ClientId*/,
+            //    State = 1,
+            //    Price = 1200,
+            //    Seat = tickets.Seat
+            //};
+            db.SaveChanges();
+            return RedirectToAction("Index_Ticket", "Ticket", new { id =tickets.WatchingId});
+        }
+        //public ActionResult Buy(int id)
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    var tickets = db.Tickets
+        //        .FirstOrDefault(a => a.Id == id);
+        //    //.Include(c => c.Watching);
+        //    var viewModel = new TicketViewModel
+        //    {
+        //        Watchings = db.Watchings.ToList(),
+        //        ClientsID = userId,
+        //        State = tickets.State,
+        //        Price = tickets.Price,
+        //        Seat = tickets.Seat,
+        //        Watching = tickets.WatchingId,
+        //        Id = tickets.Id
+        //    };
+
+
+        //    return View("Index_Ticket", viewModel);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Update(TicketViewModel viewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        viewModel.Watchings = db.Watchings.ToList();
+        //        return View(viewModel);
+        //    }
+        //    var userId = User.Identity.GetUserId();
+        //    var tickets = db.Tickets.FirstOrDefault(a => a.Id == viewModel.Id);
+        //    tickets.State = 1;
+        //    tickets.Price = viewModel.Price;
+        //    tickets.Seat = viewModel.Seat;
+        //    tickets.WatchingId = viewModel.Watching;
+        //    db.SaveChanges();
+
+        //    return RedirectToAction("Index_Watching", "Watchings");
+        //}
     }
 }

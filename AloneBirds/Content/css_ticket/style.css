@@ -8,7 +8,7 @@ body {
     width: 100%;
     height: 100vh;
     font-family: 'Poppins',sans-serif;
-    background-color: rgb(62, 62, 62);
+    background-color: rgb(62, 62, 62) !important;
 }
 header {
     color: #61DBFB;
@@ -41,6 +41,9 @@ header #main-menu {
 }
 header #main-menu .item {
     margin:0px 30px;
+}
+.form-ticket{
+	display:inline;
 }
 .login {
     width: 200px;
