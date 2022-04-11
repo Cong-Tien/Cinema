@@ -10,16 +10,33 @@ using System.Web.Mvc;
 using AloneBirds.Models;
 using AloneBirds.ViewModel;
 
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+
 namespace AloneBirds.Controllers
 {
     public class MoviesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        [Authorize]
 
         // GET: Movies
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
+            //ApplicationUser user = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+            //string currentUserId = User.Identity.GetUserId();
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (user.CategoryClient == 1)
+            {
+                return View(db.Movies.ToList());
+            }
+            if (user.CategoryClient == 0)
+            {
+                return View("Index", "Home");
+            }
+            return RedirectToAction("Index", "Base");
         }
         public ActionResult Index_movie()
         {
@@ -67,14 +84,15 @@ namespace AloneBirds.Controllers
         {
             return View();
         }
-
+        [Authorize]
+       
         // POST: Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Category,Release,Poster,Trailer")] Movie movie, HttpPostedFileBase Poster)
-        {
+        {         
             if (ModelState.IsValid)
             {
                 string path = Server.MapPath("~/Uploads/");

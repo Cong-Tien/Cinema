@@ -17,7 +17,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div style="background-color:rgba(0,0,0,.5)" class="navbar navbar-inverse navbar-fixed-top">
+    <div style="background-color:rgba(0,0,0,.5); height:80px" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -72,14 +72,17 @@
                     </div>
                 </div>
                 <br>
-                <div class="tongtien">
-                    <p>Vé:@item.Seat</p>
-                    <p>Tổng Tiền:@item.Watching.ShowTime.Fare</p>
+                <div style="height:120px" class="tongtien">
+                    <p>Bắp:  <input type="checkbox" style="height:14px; width:14px;margin-left:55px"/></p>
+                    <p> Nước Ngọt: <input type="checkbox" style="height:15px; width:15px;margin-left:10px" /></p>
+                    @*<p>Vé:@item.Seat</p>*@
+                    <p>Giá Vé: @item.Watching.ShowTime.Fare VNĐ</p>
                 </div>
                 <div>
                     <button class="btnMua">Mua Vé</button>
                 </div>
             </div>
+            break;
         }
 
     </div>

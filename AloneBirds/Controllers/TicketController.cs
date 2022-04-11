@@ -73,7 +73,7 @@ namespace AloneBirds.Controllers
                     ticket.Seat = "H" + (i + 1 - 128).ToString();
                 ticket.ClientsID = User.Identity.GetUserId();
                 ticket.WatchingId = viewModel.Watching;
-                ticket.Price = 0;
+                ticket.Price = viewModel.Price;
                 ticket.State = 0;
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
@@ -101,25 +101,16 @@ namespace AloneBirds.Controllers
         }
 
         [HttpPost]
-        public ActionResult Buy(int id)
+        public ActionResult Buy(int id, TicketViewModel viewModel)
         {
            
             var userId = User.Identity.GetUserId();
             var tickets = db.Tickets
+                .Include(a=>a.Watching.ShowTime)
                 .FirstOrDefault(a => a.Id == id);
-            var viewModel = new TicketViewModel
-            {
-                Watchings = db.Watchings.ToList(),
-                ClientsID = userId,
-                State = tickets.State,
-                Price = tickets.Price,
-                Seat = tickets.Seat,
-                Watching = tickets.WatchingId,
-                Id = tickets.Id
-            };
 
             tickets.State = 1;
-            tickets.Price = viewModel.Price;
+            //tickets.Price = viewModel.Price;
             tickets.ClientsID = userId;
             //var ticket = new Ticket
             //{

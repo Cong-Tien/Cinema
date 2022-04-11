@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202204102329442_UpdateDB.Designer.cs">
       <DependentUpon>202204102329442_UpdateDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204111202074_UpdateAccountUser.cs" />
+    <Compile Include="Migrations\202204111202074_UpdateAccountUser.Designer.cs">
+      <DependentUpon>202204111202074_UpdateAccountUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Draf.cs" />
@@ -378,6 +382,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202204102329442_UpdateDB.resx">
       <DependentUpon>202204102329442_UpdateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204111202074_UpdateAccountUser.resx">
+      <DependentUpon>202204111202074_UpdateAccountUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
