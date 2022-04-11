@@ -217,6 +217,5 @@ C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.CopyCom
 C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.dll
 C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.pdb
 C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.AssemblyReference.cache
-C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.Migrations.UPdateDB.resources
+C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.Migrations.UpdateDB.resources
 C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.GenerateResource.cache
-C:\Users\My PC\Desktop\AloneBirds\AloneBirds\obj\Debug\AloneBirds.Migrations.test.resources

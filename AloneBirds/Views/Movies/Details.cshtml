@@ -48,7 +48,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Poster)
+            <img src=" @Html.DisplayFor(model => model.Poster)" width="250" height="350"/>       
         </dd>
 
         <dt>
@@ -56,7 +56,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Trailer)
+            <iframe src="  @Html.DisplayFor(model => model.Trailer)" width="900" height="500"></iframe>
+          
         </dd>
 
     </dl>

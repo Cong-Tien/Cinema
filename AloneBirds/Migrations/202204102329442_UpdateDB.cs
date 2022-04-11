@@ -3,7 +3,7 @@ namespace AloneBirds.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UPdateDB : DbMigration
+    public partial class UpdateDB : DbMigration
     {
         public override void Up()
         {
@@ -45,15 +45,26 @@ namespace AloneBirds.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.Rooms",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        RoomName = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.ShowTimes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         DateTime = c.DateTime(nullable: false),
-                        Room = c.String(),
                         Fare = c.Int(nullable: false),
+                        RoomId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Rooms", t => t.RoomId, cascadeDelete: true)
+                .Index(t => t.RoomId);
             
             CreateTable(
                 "dbo.Tickets",
@@ -142,6 +153,7 @@ namespace AloneBirds.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.ShowTimes", "RoomId", "dbo.Rooms");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.Watchings", new[] { "MovieId" });
             DropIndex("dbo.Watchings", new[] { "ShowTimeId" });
@@ -150,6 +162,7 @@ namespace AloneBirds.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Tickets", new[] { "WatchingId" });
             DropIndex("dbo.Tickets", new[] { "ClientsID" });
+            DropIndex("dbo.ShowTimes", new[] { "RoomId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
@@ -159,6 +172,7 @@ namespace AloneBirds.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Tickets");
             DropTable("dbo.ShowTimes");
+            DropTable("dbo.Rooms");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Movies");

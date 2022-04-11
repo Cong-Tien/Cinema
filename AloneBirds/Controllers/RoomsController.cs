@@ -7,124 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AloneBirds.Models;
-using AloneBirds.ViewModel;
 
 namespace AloneBirds.Controllers
 {
-    public class ShowTimesController : Controller
+    public class RoomsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: ShowTimes
+        // GET: Rooms
         public ActionResult Index()
         {
-            var upcommingMovies = db.Watchings
-               .Include(c => c.Movie)
-               .Include(c => c.ShowTime)
-               .Include(c => c.ShowTime.Room).ToList();
-            var viewModel = new WatchingUpcommingViewModel_Room
-            {
-                UpcommingMovies_Room = upcommingMovies
-            };
-            return View(viewModel);
+            return View(db.Rooms.ToList());
         }
-            // GET: ShowTimes/Details/5
-            public ActionResult Details(int? id)
+
+        // GET: Rooms/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShowTime showTimes = db.ShowTimes.Find(id);
-            if (showTimes == null)
+            Room room = db.Rooms.Find(id);
+            if (room == null)
             {
                 return HttpNotFound();
             }
-            return View(showTimes);
+            return View(room);
         }
 
-        // GET: ShowTimes/Create
+        // GET: Rooms/Create
         public ActionResult Create()
         {
-            var viewModel = new ShowTimesViewModel
-            {
-                Rooms = db.Rooms.ToList()
-            };
-            return View(viewModel);
+            return View();
         }
 
-        // POST: ShowTimes/Create
+        // POST: Rooms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ShowTimesViewModel viewModel)
+        public ActionResult Create([Bind(Include = "Id,RoomName")] Room room)
         {
-            var showtime = new ShowTime
+            if (ModelState.IsValid)
             {
-                DateTime = viewModel.GetDateTime(),
-                RoomId = viewModel.Room,
-                Fare=(int)viewModel.Fare
-            };
-            db.ShowTimes.Add(showtime);
-            db.SaveChanges();
+                db.Rooms.Add(room);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index", "ShowTimes");
+            return View(room);
         }
 
-        // GET: ShowTimes/Edit/5
+        // GET: Rooms/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShowTime showTimes = db.ShowTimes.Find(id);
-            if (showTimes == null)
+            Room room = db.Rooms.Find(id);
+            if (room == null)
             {
                 return HttpNotFound();
             }
-            return View(showTimes);
+            return View(room);
         }
 
-        // POST: ShowTimes/Edit/5
+        // POST: Rooms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,DateTime,Room")] ShowTime showTimes)
+        public ActionResult Edit([Bind(Include = "Id,RoomName")] Room room)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(showTimes).State = EntityState.Modified;
+                db.Entry(room).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(showTimes);
+            return View(room);
         }
 
-        // GET: ShowTimes/Delete/5
+        // GET: Rooms/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShowTime showTimes = db.ShowTimes.Find(id);
-            if (showTimes == null)
+            Room room = db.Rooms.Find(id);
+            if (room == null)
             {
                 return HttpNotFound();
             }
-            return View(showTimes);
+            return View(room);
         }
 
-        // POST: ShowTimes/Delete/5
+        // POST: Rooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ShowTime showTimes = db.ShowTimes.Find(id);
-            db.ShowTimes.Remove(showTimes);
+            Room room = db.Rooms.Find(id);
+            db.Rooms.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

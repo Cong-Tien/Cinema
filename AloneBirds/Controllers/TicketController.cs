@@ -2,6 +2,8 @@
 using AloneBirds.ViewModel;
 using Microsoft.AspNet.Identity;
 using System;
+using System.Data;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +18,11 @@ namespace AloneBirds.Controllers
         {
             db = new ApplicationDbContext();
         }
+        public ActionResult Index()
+        {
+            return View(db.Tickets.ToList());
+        }
+    
         // GET: Ticket
         public ActionResult Create()
         {
@@ -66,28 +73,54 @@ namespace AloneBirds.Controllers
                     ticket.Seat = "H" + (i + 1 - 128).ToString();
                 ticket.ClientsID = User.Identity.GetUserId();
                 ticket.WatchingId = viewModel.Watching;
-                ticket.Price = 2000;
+                ticket.Price = 0;
                 ticket.State = 0;
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
             }
-            return RedirectToAction("Index_Movie", "Movies");
+            return RedirectToAction("Index_Watching", "Watchings");
         }
         public ActionResult Index_Ticket(int id)
         {
             var tickets = db.Tickets
-                .Where(a => a.WatchingId == id).ToList();
-            return View(tickets);
-            //return View(db.Tickets.ToList());
+                .Include(a=>a.Watching)
+                .Include(a=>a.Watching.ShowTime)
+                .Include(a=>a.Watching.ShowTime.Room)
+                .Include(a=>a.Watching.Movie)
+                .Where(a => a.WatchingId == id);
+
+            //var upcoming = db.Watchings
+            //    .Include(c => c.Movie)
+            //    .Include(c => c.ShowTime)
+            //    .FirstOrDefault(c => c.WatchingId = id);
+            //var viewModel = new WatchingUpcommingViewModel
+            //{
+            //    UpcommingMovies = upcoming
+            //};
+            return View("Index_Ticket", tickets/*, "_Layout_Ticket", viewModel*/);
         }
+
         [HttpPost]
         public ActionResult Buy(int id)
         {
+           
             var userId = User.Identity.GetUserId();
             var tickets = db.Tickets
                 .FirstOrDefault(a => a.Id == id);
+            var viewModel = new TicketViewModel
+            {
+                Watchings = db.Watchings.ToList(),
+                ClientsID = userId,
+                State = tickets.State,
+                Price = tickets.Price,
+                Seat = tickets.Seat,
+                Watching = tickets.WatchingId,
+                Id = tickets.Id
+            };
 
-            tickets.State = 1; 
+            tickets.State = 1;
+            tickets.Price = viewModel.Price;
+            tickets.ClientsID = userId;
             //var ticket = new Ticket
             //{
             //    Id = id,

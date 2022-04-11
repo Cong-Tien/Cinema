@@ -18,10 +18,7 @@ namespace AloneBirds.Models
         public int State { get; set; }
         
         public Watching Watching { get; set; }
-        [Required]
         public int WatchingId { get; set; }
-  
-
 
     }
 }

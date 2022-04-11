@@ -24,6 +24,7 @@ namespace AloneBirds.Models
         public DbSet<ShowTime> ShowTimes { get; set; }
         public DbSet<Watching> Watchings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Room> Rooms { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

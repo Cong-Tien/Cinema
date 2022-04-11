@@ -174,19 +174,16 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\ShowTimesController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\WatchingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204080036584_UPdateDB.cs" />
-    <Compile Include="Migrations\202204080036584_UPdateDB.Designer.cs">
-      <DependentUpon>202204080036584_UPdateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204080616263_test.cs" />
-    <Compile Include="Migrations\202204080616263_test.Designer.cs">
-      <DependentUpon>202204080616263_test.cs</DependentUpon>
+    <Compile Include="Migrations\202204102329442_UpdateDB.cs" />
+    <Compile Include="Migrations\202204102329442_UpdateDB.Designer.cs">
+      <DependentUpon>202204102329442_UpdateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -194,6 +191,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Models\ShowTime.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\Watching.cs" />
@@ -201,6 +199,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ShowTimesViewModel.cs" />
     <Compile Include="ViewModel\TicketViewModel.cs" />
+    <Compile Include="ViewModel\WatchingUpcoomingViewModel_Room.cs" />
     <Compile Include="ViewModel\WatchingUpcoomingViewModel.cs" />
     <Compile Include="ViewModel\WatchingViewModel.cs" />
   </ItemGroup>
@@ -245,6 +244,7 @@
     <Content Include="Content\image_moviestore\background.jpg" />
     <Content Include="Content\image_moviestore\CGV_logo.svg.png" />
     <Content Include="Content\image_moviestore\dora.jpg" />
+    <Content Include="Content\Site_other.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -354,6 +354,12 @@
     <Content Include="Views\Watchings\Index_Watching.cshtml" />
     <Content Include="Views\Shared\_Layout_Ticket.cshtml" />
     <Content Include="Views\Ticket\Index_Ticket.cshtml" />
+    <Content Include="Views\Rooms\Create.cshtml" />
+    <Content Include="Views\Rooms\Delete.cshtml" />
+    <Content Include="Views\Rooms\Details.cshtml" />
+    <Content Include="Views\Rooms\Edit.cshtml" />
+    <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Ticket\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,11 +376,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204080036584_UPdateDB.resx">
-      <DependentUpon>202204080036584_UPdateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204080616263_test.resx">
-      <DependentUpon>202204080616263_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204102329442_UpdateDB.resx">
+      <DependentUpon>202204102329442_UpdateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

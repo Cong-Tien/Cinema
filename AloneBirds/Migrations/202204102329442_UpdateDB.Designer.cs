@@ -7,13 +7,13 @@ namespace AloneBirds.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class test : IMigrationMetadata
+    public sealed partial class UpdateDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204080616263_test"; }
+            get { return "202204102329442_UpdateDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<AloneBirds.Models.Ticket>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <img src="~/Content/images/CGV_logo.svg.png" width="120" height="60"/>
+                <img src="~/Content/images/CGV_logo.svg.png" width="120" height="60" />
             </div>
             <div class="navbar-collapse collapse">
                 <ul style="padding-top:8px" class="nav navbar-nav">
@@ -45,7 +46,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 style="color:deeppink;font-weight:bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;text-align:left;font-size:20px;margin:0" class="modal-title" id="exampleModalLabel">Thông Báo</h5>                                
+                                <h5 style="color:deeppink;font-weight:bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;text-align:left;font-size:20px;margin:0" class="modal-title" id="exampleModalLabel">Thông Báo</h5>
                             </div>
                             <div style="color:hotpink;font-size:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="modal-body text-center">
                                 <img style="margin-bottom:10px" src="~/Content/images/ảnh-icon-buồn.jpg" width="550" height="350" /><br />
@@ -59,24 +60,28 @@
                 </div>
             </ul>
         </div>
-        <div class="gioiThieuPhim">
-            <div id="rectangle">
-                <img src="image/dora.jpg" alt="">
-                <div class="ttphim">
-                    <h2>Doraemon</h2>
-                    <p>12:01- Cyber Cinema - 8.5 IMDP</p>
-                    <h3>2D 20:00 12-04-2022</h3>
+        @foreach (var item in Model)
+        {
+            <div class="gioiThieuPhim">
+                <div id="rectangle">
+                    <img src="@item.Watching.Movie.Poster" alt="">
+                    <div class="ttphim">
+                        <h2>@item.Watching.Movie.Name</h2>
+                        <p>@item.Watching.ShowTime.Room.RoomName</p>
+                        <h3>@item.Watching.ShowTime.DateTime</h3>
+                    </div>
+                </div>
+                <br>
+                <div class="tongtien">
+                    <p>Vé:@item.Seat</p>
+                    <p>Tổng Tiền:@item.Watching.ShowTime.Fare</p>
+                </div>
+                <div>
+                    <button class="btnMua">Mua Vé</button>
                 </div>
             </div>
-            <br>
-            <div class="tongtien">
-                <p>Vé:</p>
-                <p>Tổng Tiền:</p>
-            </div>
-            <div>
-                <button class="btnMua">Mua Vé</button>
-            </div>
-        </div>
+        }
+
     </div>
     <div style="padding-left:290px" class="infGhe">
         <div style="padding-right:20px"> <button class="square-1">...</button><span>Ghế Chưa Đặt</span></div>

@@ -1,13 +1,12 @@
-﻿@model AloneBirds.ViewModel.WatchingUpcommingViewModel_Room
-
+﻿@model IEnumerable<AloneBirds.Models.Ticket>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List ShowTimes</h2>
+<h2>List Ticket</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
@@ -16,7 +15,7 @@
             @Html.DisplayNameFor(model => model.DateTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RoomName)
+            @Html.DisplayNameFor(model => model.Room)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Fare)
@@ -24,17 +23,17 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model.UpcommingMovies_Room)
+    @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowTime.DateTime)
+                @Html.DisplayFor(modelItem => item.DateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowTime.Room.RoomName)
+                @Html.DisplayFor(modelItem => item.Room)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowTime.Fare)
+                @Html.DisplayFor(modelItem => item.Fare)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -44,4 +43,5 @@
         </tr>
     }
 
-</table>
+</table>*@
+
