@@ -28,7 +28,6 @@ namespace AloneBirds.Models
         public DbSet<Watching> Watchings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Room> Rooms { get; set; }
-
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -43,12 +42,11 @@ namespace AloneBirds.Models
             modelBuilder.Entity<Watching>()
                 .HasRequired(a => a.Movie)
                 .WithMany();
-            modelBuilder.Entity<Ticket>()
-               .HasRequired(a => a.Watching)
-               .WithMany();
+            //modelBuilder.Entity<Ticket>()
+            //   .HasRequired(a => a.Watching)
+            //   .WithMany();
 
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }

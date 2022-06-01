@@ -34,7 +34,7 @@ namespace AloneBirds.Controllers
             }
             if (user.CategoryClient == 0)
             {
-                return View("Index", "Home");
+                return RedirectToAction("Index","Home");
             }
             return RedirectToAction("Index", "Base");
         }

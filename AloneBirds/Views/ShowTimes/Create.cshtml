@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div class="form-horizontal" style="margin-top:60px">
     <h4>ShowTimes</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Room, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-           @Html.DropDownListFor(model=>model.Room, new SelectList(Model.Rooms, "Id","RoomName"),"",new {@class= "form-control" })
+            @Html.DropDownListFor(model => model.Room, new SelectList(Model.Rooms, "Id", "RoomName"), "", new { @class = "form-control" })
 
 
         </div>
@@ -51,6 +51,8 @@
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
+    <img src="~/Content/images/boss.jpg" width="500" height="500" style="float: right;margin-top:-400px" />
+
 </div>
 }
 

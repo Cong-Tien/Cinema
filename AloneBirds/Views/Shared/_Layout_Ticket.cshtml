@@ -16,7 +16,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+
+<body style="background-image: url(/Content/images/abc.jpg)" >
     <div style="background-color:rgba(0,0,0,.5); height:80px" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -64,7 +65,7 @@
         {
             <div class="gioiThieuPhim">
                 <div id="rectangle">
-                    <img src="@item.Watching.Movie.Poster" alt="">
+                    <img style="width:120px" src="@item.Watching.Movie.Poster" alt="">
                     <div class="ttphim">
                         <h2>@item.Watching.Movie.Name</h2>
                         <p>@item.Watching.ShowTime.Room.RoomName</p>

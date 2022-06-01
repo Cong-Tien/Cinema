@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace AloneBirds.Controllers
 {
@@ -18,12 +19,25 @@ namespace AloneBirds.Controllers
         {
             db = new ApplicationDbContext();
         }
+        [Authorize]
         public ActionResult Index()
         {
-            return View(db.Tickets.ToList());
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
+            //ApplicationUser user = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+            //string currentUserId = User.Identity.GetUserId();
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (user.CategoryClient == 1)
+            {
+                return View(db.Tickets.ToList());
+            }
+            if (user.CategoryClient == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index", "Base");
         }
-    
-        // GET: Ticket
+            // GET: Ticket
         public ActionResult Create()
         {
             var viewModel = new TicketViewModel
@@ -31,6 +45,20 @@ namespace AloneBirds.Controllers
                 Watchings = db.Watchings.ToList(),
             };
             return View(viewModel);
+        }
+
+        [Authorize]
+        public ActionResult MyTicket()
+        {
+            var userId = User.Identity.GetUserId();
+            var ticket = db.Tickets
+                .Where(c => c.ClientsID == userId)
+                .Include(l => l.Watching)
+                .Include(l => l.Watching.ShowTime)
+                .Include(l => l.Watching.Movie).ToList();
+
+           
+            return View(ticket);
         }
 
 
@@ -80,6 +108,7 @@ namespace AloneBirds.Controllers
             }
             return RedirectToAction("Index_Watching", "Watchings");
         }
+        [Authorize]
         public ActionResult Index_Ticket(int id)
         {
             var tickets = db.Tickets

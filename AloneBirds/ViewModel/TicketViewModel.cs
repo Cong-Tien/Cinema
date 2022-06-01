@@ -16,5 +16,6 @@ namespace AloneBirds.ViewModel
         public int State { get; set; }
         public int Watching { get; set; }
        public IEnumerable<Watching> Watchings { get; set; }
+
     }
 }

@@ -8,7 +8,7 @@
     if (@item.State == 0)
     {
         <form class="form-ticket" action="/Ticket/Buy/@item.Id" method="post">
-        <button style="" type="submit" onclick="alert('Bạn đã mua vé thành công')" class="square">@item.Seat</button>
+        <button  type="submit" onclick="alert('Bạn đã mua vé thành công')" class="square">@item.Seat</button>
         </form>
         @*<button  data-course-id="@item.Id" class=" js-toggle-attendance square">@item.Seat</button>*@
 

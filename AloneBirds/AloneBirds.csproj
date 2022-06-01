@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -215,6 +216,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css_moviestore\style.css" />
     <Content Include="Content\css_Ticket\style.css" />
+    <Content Include="Content\images\abc.jpg" />
     <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\bighero.jpg" />
     <Content Include="Content\images\boss.jpg" />
@@ -227,10 +229,13 @@
     <Content Include="Content\images\item3.jpg" />
     <Content Include="Content\images\item4.png" />
     <Content Include="Content\images\item5.jpg" />
+    <Content Include="Content\images\jail.gif" />
+    <Content Include="Content\images\jain2.jpg" />
     <Content Include="Content\images\luca.jpg" />
     <Content Include="Content\images\mat-biec.jpg" />
     <Content Include="Content\images\minions.jpg" />
     <Content Include="Content\images\phone.png" />
+    <Content Include="Content\images\prison.jpg" />
     <Content Include="Content\images\tamcam.jpg" />
     <Content Include="Content\images\trangquynh.jpg" />
     <Content Include="Content\images\ảnh-icon-buồn.jpg" />
@@ -364,6 +369,9 @@
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
     <Content Include="Views\Ticket\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_fake.cshtml" />
+    <Content Include="Views\Ticket\MyTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

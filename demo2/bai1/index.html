@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1 : Nhóm AloneBirds </title>
+    <!-- Liên kết css vào trang html -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Liên  kết thư viện jsquery -->
+    <script src="jquery-3.6.0.min.js"> </script>
+    <!-- Liên kết code javascrip -->
+    <script src ="main.js"></script>
+  
+    Tên nhóm: AloneBirds
+</head>
+<body>
+    
+    <p> Thành viên: </p>
+    <p>Lê Công Tiến</p>
+               <p> Đào Thanh Tiến</p>
+               <p> Nguyễn Thái Hiệp</p><p> Nguyễn Tuấn Kiêth</p><p> Lưu Thi Phương</p>
+               
+    <!-- câu 1: Ctrl + / -->
+    <!-- Yêu cầu câu 1: Thay đổi màu sắc và kích thước chữ khi nhấn button bằng 2 cách sd javas và jquery  -->
+    <p id="text">javascrip</p>
+    <div>
+        <button id="jsStyle" onclick="jquery_style()">Button 1</button>
+        
+    </div>
+   
+
+    <form id="form1" onsubmit="getFormvalue()">
+        First name: <input type="text" name="fname" value="David"><br/>
+        Last name: <input type="text" name="lname" value="Beckham"><br/>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="bg"></p>
+    <div>
+        <button id="jsStyle" onclick="bgcolor()">SetBG</button>       
+    </div>
+
+    <table id ="sampleTable" border ="1">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 cell1</td>
+            <td>Row2 cell2</td>
+        </tr>
+    </table><br>
+    <input type="button" onclick="insert_Row_jquery()" value="Insert row">
+
+    <table id ="myTable" border ="1">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 cell1</td>
+            <td>Row2 cell2</td>
+        </tr>
+    </table><br>
+    <form>
+        <input type="button" onclick="changeContent()" value="Change content">
+    </form>
+    <div>
+        <button id="jsstyle" 
+        onclick="display_random_image();">Show Image</button> 
+        </div>
+
+    <form>
+        <select id ="colorSelect">
+            <option>Red</option>
+            <option>Green</option>
+            <option>White</option>
+            <option>Black</option>
+        </select>
+        <input type="button" onclick="removecolor()" value="Select and Remove"><br>
+    </form>
+    
+    <table id = "myTable" boder="1"></table>
+    <form>
+        <input type="button" onclick="createTable(3,5)" value="Create the table"><br>
+    </form>
+
+    <button onclick="myFunction()">Try it</button>
+<img id="afbeelding">
+<!-- Câu 10: -->
+<script>
+    console.log(Window.innerHeight)
+    console.log(Window.innerWith) 
+</script>
+</body>
+</html>

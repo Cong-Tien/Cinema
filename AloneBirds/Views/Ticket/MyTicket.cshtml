@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<AloneBirds.Models.Ticket>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MyTicket";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <div style="color:pink">
-    <h2>List Ticket</h2>
+    <h2>List My Ticket</h2>
 
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -28,7 +29,10 @@
                 @Html.DisplayNameFor(model => model.State)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WatchingId)
+                @Html.DisplayNameFor(model => model.Watching.ShowTime.DateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Watching.Movie.Name)
             </th>
             <th></th>
         </tr>
@@ -52,14 +56,13 @@
             @Html.DisplayFor(modelItem => item.State)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WatchingId)
+            @Html.DisplayFor(modelItem => item.Watching.ShowTime.DateTime)
         </td>
-       
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.DisplayFor(modelItem => item.Watching.Movie.Name)
         </td>
+
+
     </tr>
         }
 
