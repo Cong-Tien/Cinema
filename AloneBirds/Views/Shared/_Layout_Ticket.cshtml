@@ -80,7 +80,8 @@
                     <p>Giá Vé: @item.Watching.ShowTime.Fare VNĐ</p>
                 </div>
                 <div>
-                    <button class="btnMua">Mua Vé</button>
+                    <button type="button" onclick="location.href = '/Ticket/BuyReal/@item.Watching.Id';" class="btnMua">Mua Vé</button>
+                    <button type="button" onclick="location.href='/Ticket/Cancel';" class="btnMua">Hủy</button>
                 </div>
             </div>
             break;

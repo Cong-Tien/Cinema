@@ -3,7 +3,7 @@ namespace AloneBirds.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UpdateDB : DbMigration
+    public partial class ReBuild : DbMigration
     {
         public override void Up()
         {
@@ -88,6 +88,7 @@ namespace AloneBirds.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        CategoryClient = c.Int(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -134,6 +135,7 @@ namespace AloneBirds.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         ShowTimeId = c.Int(nullable: false),
+                        sold = c.Int(nullable: false),
                         MovieId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

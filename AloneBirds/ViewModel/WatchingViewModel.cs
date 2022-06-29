@@ -12,5 +12,6 @@ namespace AloneBirds.ViewModel
         public IEnumerable<Movie> Movies { get; set; }
         public byte ShowTime { get; set; }
         public IEnumerable<ShowTime> ShowTimes { get; set; }
+
     }
 }

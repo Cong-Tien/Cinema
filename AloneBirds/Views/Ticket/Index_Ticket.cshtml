@@ -8,9 +8,9 @@
     if (@item.State == 0)
     {
         <form class="form-ticket" action="/Ticket/Buy/@item.Id" method="post">
-        <button  type="submit" onclick="alert('Bạn đã mua vé thành công')" class="square">@item.Seat</button>
+            <button type="submit"  class="square">@item.Seat</button>
         </form>
-        @*<button  data-course-id="@item.Id" class=" js-toggle-attendance square">@item.Seat</button>*@
+        @*<button id="@item.Seat" onclick="abc()" class=" js-toggle-attendance square">@item.Seat</button>*@
 
     }
     if (item.State == 1)
@@ -18,8 +18,22 @@
         <button type="button" data-toggle="modal" data-target="#exampleModal" style="background-color:lightpink" class="square">@item.Seat</button>
     }
 
+    if (item.State == 2)
+    {
+        <button type="button" data-toggle="modal" data-target="#exampleModal" style="background-color: #21d1fd" class="square">@item.Seat</button>
+    }
+
 }
 <script>
+    //function abc() {
+    //    console.log(document.activeElement.style.backgroundColor)
+    //    if (document.activeElement.style.backgroundColor === "blue") {
+    //        document.activeElement.style.backgroundColor = "white";
+    //    } else {
+    //        document.activeElement.style.backgroundColor = "blue";
+    //    }
+    //}
+    
     //$(".js-toggle-follow").click(function (e) {
     //            var button = $(e.target);
     //            if (button.hasClass("btn-default")) {

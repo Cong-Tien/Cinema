@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AloneBirds.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +15,21 @@ namespace AloneBirds.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
+            //ApplicationUser user = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+            //string currentUserId = User.Identity.GetUserId();
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (user.CategoryClient == 1)
+            {
+                return View();
+            }
+            if (user.CategoryClient == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index", "Base");
+           
         }
 
         // GET: Admin/Details/5

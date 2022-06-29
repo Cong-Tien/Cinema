@@ -22,20 +22,8 @@ namespace AloneBirds.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
-            //ApplicationUser user = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
-            //string currentUserId = User.Identity.GetUserId();
-            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
-            if (user.CategoryClient == 1)
-            {
-                return View(db.Tickets.ToList());
-            }
-            if (user.CategoryClient == 0)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            return RedirectToAction("Index", "Base");
+             return View(db.Tickets.ToList());
+           
         }
             // GET: Ticket
         public ActionResult Create()
@@ -53,6 +41,7 @@ namespace AloneBirds.Controllers
             var userId = User.Identity.GetUserId();
             var ticket = db.Tickets
                 .Where(c => c.ClientsID == userId)
+                .Include(l => l.Clients)
                 .Include(l => l.Watching)
                 .Include(l => l.Watching.ShowTime)
                 .Include(l => l.Watching.Movie).ToList();
@@ -118,14 +107,7 @@ namespace AloneBirds.Controllers
                 .Include(a=>a.Watching.Movie)
                 .Where(a => a.WatchingId == id);
 
-            //var upcoming = db.Watchings
-            //    .Include(c => c.Movie)
-            //    .Include(c => c.ShowTime)
-            //    .FirstOrDefault(c => c.WatchingId = id);
-            //var viewModel = new WatchingUpcommingViewModel
-            //{
-            //    UpcommingMovies = upcoming
-            //};
+            
             return View("Index_Ticket", tickets/*, "_Layout_Ticket", viewModel*/);
         }
 
@@ -138,7 +120,7 @@ namespace AloneBirds.Controllers
                 .Include(a=>a.Watching.ShowTime)
                 .FirstOrDefault(a => a.Id == id);
 
-            tickets.State = 1;
+            tickets.State = 2;
             //tickets.Price = viewModel.Price;
             tickets.ClientsID = userId;
             //var ticket = new Ticket
@@ -152,6 +134,76 @@ namespace AloneBirds.Controllers
             db.SaveChanges();
             return RedirectToAction("Index_Ticket", "Ticket", new { id =tickets.WatchingId});
         }
+
+        public ActionResult BuyReal(int id)
+        {
+
+            var userId = User.Identity.GetUserId();
+            var tickets = db.Tickets
+                .Include(a => a.Watching.ShowTime)
+                .Where(a => a.State == 2).ToList();
+            var ticketss = db.Tickets
+               .Include(a => a.Watching.ShowTime)
+               .FirstOrDefault(a => a.State == 2);
+
+            var ticketsss = db.Watchings
+              .Include(a => a.ShowTime)
+              .FirstOrDefault(a => a.Id == id);
+
+            foreach (var e in tickets)
+            {
+
+                e.State = 1;
+                //tickets.Price = viewModel.Price;
+                e.ClientsID = userId;
+                e.Price = ticketsss.ShowTime.Fare;
+                //var ticket = new Ticket
+                //{
+                //    Id = id,
+                //    ClientsID = userId /*tickets.ClientId*/,
+                //    State = 1,
+                //    Price = 1200,
+                //    Seat = tickets.Seat
+                //};
+                db.SaveChanges();
+            }
+
+           
+            return RedirectToAction("Index_Ticket", "Ticket", new { id = ticketss.WatchingId });
+        }
+
+        public ActionResult Cancel(TicketViewModel viewModel)
+        {
+
+            var userId = User.Identity.GetUserId();
+            var tickets = db.Tickets
+                .Include(a => a.Watching.ShowTime)
+                .Where(a => a.State == 2).ToList();
+            var ticketss = db.Tickets
+               .Include(a => a.Watching.ShowTime)
+               .FirstOrDefault(a => a.State == 2);
+
+            foreach (var e in tickets)
+            {
+
+                e.State = 0;
+                //tickets.Price = viewModel.Price;
+                e.ClientsID = userId;
+                //var ticket = new Ticket
+                //{
+                //    Id = id,
+                //    ClientsID = userId /*tickets.ClientId*/,
+                //    State = 1,
+                //    Price = 1200,
+                //    Seat = tickets.Seat
+                //};
+                db.SaveChanges();
+            }
+
+
+            return RedirectToAction("Index_Ticket", "Ticket", new { id = ticketss.WatchingId });
+        }
+
         //public ActionResult Buy(int id)
         //{
         //    var userId = User.Identity.GetUserId();

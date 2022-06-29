@@ -11,6 +11,7 @@ namespace AloneBirds.ViewModel
    
         public DateTime DateTime { get; set; }
         public string Name { get; set; }
+        public int State { get; set; }
         public IEnumerable<Watching> UpcommingMovies { get; set; }
 
     }

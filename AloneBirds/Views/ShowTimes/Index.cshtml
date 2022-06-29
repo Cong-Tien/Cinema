@@ -1,4 +1,4 @@
-﻿@model AloneBirds.ViewModel.WatchingUpcommingViewModel_Room
+﻿@model IEnumerable<AloneBirds.Models.ShowTime>
 
 @{
     ViewBag.Title = "Index";
@@ -13,28 +13,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DateTime)
+            Show Times
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RoomName)
+            Room
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fare)
+            Price
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model.UpcommingMovies_Room)
+    @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowTime.DateTime)
+                @Html.DisplayFor(modelItem => item.DateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowTime.Room.RoomName)
+                @Html.DisplayFor(modelItem => item.Room.RoomName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowTime.Fare)
+                @Html.DisplayFor(modelItem => item.Fare)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

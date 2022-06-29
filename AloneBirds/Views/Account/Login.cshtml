@@ -3,33 +3,63 @@
 @{
     ViewBag.Title = "Log in";
 }
+<style>
+    .checkbox label{
+        padding-left:0;
+    }
+    .btn-gradient {
+        padding: 12px 130px;
+        font-size: 15px;
+        font-weight: 500;
+        background-image: linear-gradient(to right,#f55f8d 0,#f8ae56 51%,#f55f8d 100%);
+        background-size: 200%;
+        border: 1px solid transparent;
+        transition: all .5s;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        outline: 0;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-left:-50px;
+        text-align:center;
+    }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
+        .btn-gradient:hover {
+            background-position: right center;
+        }
+</style>
+<head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body style="background-image: url(/Content/images/abc.jpg)">
+     <section class="animate__animated animate__bounce" style="background:white;width:450px; height:500px; border-radius:30px; padding: 0 60px ;margin-left:350px;padding-left:90px" id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
+            <h2 style="font-family:'Curlz MT';font-weight:900; padding-top:30px;font-size:60px" class="text-center">Log In</h2>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
+     <div class="form-group animate__animated animate__backLeft animate__delay-3s" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight:normal;font-size:18px">
+         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+         <br />
+         <div style="margin-top:15px;margin-left:15px" class="">
+             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+         </div>
+     </div>
+                <div class="form-group animate__animated animate__backInRight animate__delay-2s"style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight:normal;font-size:18px">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+                    <br />
+                    <div style="margin-top:15px;margin-left:15px">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                <div class="form-group animate__animated animate__backInLeft animate__delay-1s" style="margin-left:180px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    <div>
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
@@ -38,26 +68,18 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                        <input type="submit" value="Log in" class="btn-gradient animate__animated animate__rotateInDownLeft animate__delay-1s" />
                     </div>
                 </div>
-                <p>
+                <p style="text-align:center" class=" animate__animated animate__flip animate__delay-1s">
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
+                
             }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
 
+        </section>
+</body>
+       
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

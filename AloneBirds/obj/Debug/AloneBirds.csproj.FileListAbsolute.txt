@@ -323,11 +323,10 @@ C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\bin\Microsoft.Owin
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.AssemblyReference.cache
-C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.Migrations.UpdateDB.resources
-C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.Migrations.UpdateAccountUser.resources
-C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.GenerateResource.cache
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.CoreCompileInputs.cache
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.CopyComplete
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.dll
 C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.pdb
+C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.AssemblyReference.cache
+C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.Migrations.ReBuild.resources
+C:\Users\My PC\Desktop\Lập trình Web\AloneBirds\AloneBirds\obj\Debug\AloneBirds.csproj.GenerateResource.cache

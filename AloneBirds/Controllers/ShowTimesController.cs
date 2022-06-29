@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using AloneBirds.Models;
 using AloneBirds.ViewModel;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace AloneBirds.Controllers
 {
@@ -16,17 +18,25 @@ namespace AloneBirds.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ShowTimes
+        [Authorize]
         public ActionResult Index()
         {
-            var upcommingMovies = db.Watchings
-               .Include(c => c.Movie)
-               .Include(c => c.ShowTime)
-               .Include(c => c.ShowTime.Room).ToList();
-            var viewModel = new WatchingUpcommingViewModel_Room
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
+            //ApplicationUser user = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+            //string currentUserId = User.Identity.GetUserId();
+            //ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (user.CategoryClient == 1)
             {
-                UpcommingMovies_Room = upcommingMovies
-            };
-            return View(viewModel);
+                var showtime = db.ShowTimes       
+               .Include(l => l.Room).ToList();
+                return View(showtime);
+            }
+            if (user.CategoryClient == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index", "Base");
         }
             // GET: ShowTimes/Details/5
             public ActionResult Details(int? id)

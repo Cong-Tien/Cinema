@@ -182,13 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204102329442_UpdateDB.cs" />
-    <Compile Include="Migrations\202204102329442_UpdateDB.Designer.cs">
-      <DependentUpon>202204102329442_UpdateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204111202074_UpdateAccountUser.cs" />
-    <Compile Include="Migrations\202204111202074_UpdateAccountUser.Designer.cs">
-      <DependentUpon>202204111202074_UpdateAccountUser.cs</DependentUpon>
+    <Compile Include="Migrations\202206261625159_ReBuild.cs" />
+    <Compile Include="Migrations\202206261625159_ReBuild.Designer.cs">
+      <DependentUpon>202206261625159_ReBuild.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -216,8 +212,10 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css_moviestore\style.css" />
     <Content Include="Content\css_Ticket\style.css" />
+    <Content Include="Content\images\2zTi.jpg" />
     <Content Include="Content\images\abc.jpg" />
     <Content Include="Content\images\background.jpg" />
+    <Content Include="Content\images\bg-01.jpg" />
     <Content Include="Content\images\bighero.jpg" />
     <Content Include="Content\images\boss.jpg" />
     <Content Include="Content\images\CGV_logo.svg.png" />
@@ -231,6 +229,7 @@
     <Content Include="Content\images\item5.jpg" />
     <Content Include="Content\images\jail.gif" />
     <Content Include="Content\images\jain2.jpg" />
+    <Content Include="Content\images\JIbOgQ.jpg" />
     <Content Include="Content\images\luca.jpg" />
     <Content Include="Content\images\mat-biec.jpg" />
     <Content Include="Content\images\minions.jpg" />
@@ -388,11 +387,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204102329442_UpdateDB.resx">
-      <DependentUpon>202204102329442_UpdateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204111202074_UpdateAccountUser.resx">
-      <DependentUpon>202204111202074_UpdateAccountUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206261625159_ReBuild.resx">
+      <DependentUpon>202206261625159_ReBuild.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

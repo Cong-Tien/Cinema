@@ -2,40 +2,69 @@
 @{
     ViewBag.Title = "Register";
 }
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .btn-gradient {
+            padding: 12px 130px;
+            font-size: 15px;
+            font-weight: 500;
+            background-image: linear-gradient(to right,lightpink 0,lightblue 51%,#f55f8d 100%);
+            background-size: 200%;
+            border: 1px solid transparent;
+            transition: all .5s;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            outline: 0;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-left: -50px;
+            text-align: center;
+        }
 
-<h2>@ViewBag.Title.</h2>
+            .btn-gradient:hover {
+                background-position: right center;
+            }
+    </style>
+</head>
+<body style="background-image: url(/Content/images/abc.jpg)">
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+    <div style="background:white; width:600px ;margin-left:300px; border-radius:30px; padding:20px 50px;margin-top:50px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+        <h2 style="text-align:center;margin-bottom:40px">Sign Up</h2>
+        <h4 style="margin-bottom:20px"> <i style="color:green" class="fa-solid fa-circle-check"></i> Create a new account.</h4>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group" style="margin-left:50px">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="border-radius:20px">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group" style="margin-left:50px">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group" style="margin-left:50px">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="margin-top:10px">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10"  style="margin-left:180px">
+                <input type="submit" class="btn-gradient" value="Register" />
+            </div>
+        </div>
+    </div>     
+    }
+    </body>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

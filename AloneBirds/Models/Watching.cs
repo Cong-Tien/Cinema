@@ -17,6 +17,8 @@ namespace AloneBirds.Models
         public int ShowTimeId { get; set; }
 
         public Movie Movie { get; set; }
+
+        public int sold { get; set; }
     
        
         public int MovieId { get; set; }
